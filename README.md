@@ -82,13 +82,13 @@ E o código-fonte está licenciado sob qualquer um dos
 <!-- - Apache License, Version 2.0 ([LICENSE-APACHE](LICENSE-APACHE) or
   http://www.apache.org/licenses/LICENSE-2.0) -->
 
-- Apache License, Version 2.0 ([LICENSE-APACHE](LICENSE-APACHE) ou
+- Licença Apache, Versão 2.0 ([LICENSE-APACHE](LICENSE-APACHE) ou
   http://www.apache.org/licenses/LICENSE-2.0)
 
 <!-- - MIT License ([LICENSE-MIT](LICENSE-MIT) or
   https://opensource.org/licenses/MIT) -->
 
-- MIT License ([LICENSE-MIT](LICENSE-MIT) ou
+- Licença MIT ([LICENSE-MIT](LICENSE-MIT) ou
   https://opensource.org/licenses/MIT)
 
 <!-- at your option. -->
