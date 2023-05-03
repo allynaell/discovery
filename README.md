@@ -77,7 +77,7 @@ A documentação está licenciada sob
 
 <!-- And the source code is licensed under either of -->
 
-E o código-fonte está licenciado sob qualquer um dos
+E o código-fonte está licenciado sob qualquer uma das
 
 <!-- - Apache License, Version 2.0 ([LICENSE-APACHE](LICENSE-APACHE) or
   http://www.apache.org/licenses/LICENSE-2.0) -->
