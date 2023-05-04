@@ -32,8 +32,7 @@ Os seguintes tópicos serão abordados (eventualmente, espero):
   (ADC), common communication protocols like Serial, I2C and SPI, etc. -->
 
 - Funcionalidades ("periféricos") comumente encontradas em microcontroladores:
-  entrada e saída digital, modulação por largura de pulso (PWM), conversores
-  analógicos para digitais (ADC), protocolos de comunicação comuns como Serial,
+  entrada e saída digital, Modulação por Largura de Pulso (PWM), Conversores Analógicos-Digitais (ADC), protocolos de comunicação comuns como Serial,
   I2C e SPI, etc.
 
 <!-- - Multitasking concepts: cooperative vs preemptive multitasking, interrupts,
