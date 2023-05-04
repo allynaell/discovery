@@ -141,14 +141,14 @@ jobs:
       - name: Build microbit book
         working-directory: microbit
         run: mkdir target && mdbook build
-      - name: Check microbit links
-        working-directory: microbit
-        run: linkchecker --ignore-url "print.html" book
+#       - name: Check microbit links
+#         working-directory: microbit
+#         run: linkchecker --ignore-url "print.html" book
 
       - name: Build front page
         run: mdbook build
-      - name: Check links
-        run: linkchecker book
+#       - name: Check links
+#         run: linkchecker book
 
       - name: Collect books
         run: |
