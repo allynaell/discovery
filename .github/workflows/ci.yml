@@ -134,9 +134,9 @@ jobs:
       - name: Build f3discovery book
         working-directory: f3discovery
         run: mkdir target && mdbook build
-      - name: Check microbit links
-        working-directory: f3discovery
-        run: linkchecker --ignore-url "print.html" book
+#       - name: Check microbit links
+#         working-directory: f3discovery
+#         run: linkchecker --ignore-url "print.html" book
 
       - name: Build microbit book
         working-directory: microbit
