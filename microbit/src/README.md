@@ -25,7 +25,7 @@ Os seguintes tópicos serão abordados (eventualmente, espero):
 
 <!-- - How to write, build, flash and debug an "embedded" (Rust) program. -->
 
-- Como escrever, construir, atualizar e depurar um programa (Rust) "embarcado".
+- Como escrever, construir, gravar e depurar um programa (Rust) "embarcado".
 
 <!-- - Functionality ("peripherals") commonly found in microcontrollers: Digital
   input and output, Pulse Width Modulation (PWM), Analog to Digital Converters
@@ -129,18 +129,18 @@ na [seção de issues].
 
 <!-- ## Other embedded Rust resources -->
 
-## Outros materiais sobre Rust para embarcados:
+## Outros materiais sobre Rust para sistemas embarcados:
 
 <!-- This Discovery book is just one of several embedded Rust resources provided by
 the [Embedded Working Group]. The full selection can be found at
 [The Embedded Rust Bookshelf]. This includes the list of
 [Frequently Asked Questions]. -->
 
-Este livro de Discovery é apenas um de vários materiais acerca de Rust para
+Este livro de Discovery é apenas um de vários materiais sobre Rust para sistemas
 embarcados fornecidos pelo [Embedded Working Group]. A seleção completa pode ser
 encontrada em [The Embedded Rust Bookshelf]. Isso inclui a lista de
-[perguntas frequentes].
+[Perguntas Frequentes].
 
 [Embedded Working Group]: https://github.com/rust-embedded/wg
 [The Embedded Rust Bookshelf]: https://docs.rust-embedded.org
-[perguntas frequentes]: https://docs.rust-embedded.org/faq.html
+[Perguntas Frequentes]: https://docs.rust-embedded.org/faq.html
