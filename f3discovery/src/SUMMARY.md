@@ -1,167 +1,94 @@
-<!-- [Introduction](README.md) -->
-
 [Introdução](README.md)
 
 - [Contexto](01-background/README.md)
 
-<!-- - [Hardware/knowledge requirements](02-requirements/README.md) -->
-
 - [Requisitos de hardware/conhecimento](02-requirements/README.md)
-
-<!-- - [Setting up a development environment](03-setup/README.md) -->
 
 - [Configurando o ambiente de desenvolvimento](03-setup/README.md)
   - [Linux](03-setup/linux.md)
   - [Windows](03-setup/windows.md)
   - [macOS](03-setup/macos.md)
-  <!-- - [Verify the installation](03-setup/verify.md) -->
   - [Verifique a instalação](03-setup/verify.md)
-
-<!-- - [Meet your hardware](04-meet-your-hardware/README.md) -->
 
 - [Conheça seu hardware](04-meet-your-hardware/README.md)
 
-<!-- - [LED roulette](05-led-roulette/README.md) -->
-
 - [Roleta LED](05-led-roulette/README.md)
-  <!-- - [Build it](05-led-roulette/build-it.md) -->
   - [Construindo](05-led-roulette/build-it.md)
-  <!-- - [Flash it](05-led-roulette/flash-it.md) -->
   - [Gravando](05-led-roulette/flash-it.md)
-  <!-- - [Debug it](05-led-roulette/debug-it.md) -->
   - [Depurando](05-led-roulette/debug-it.md)
-  <!-- - [The `led` and `delay` abstractions](05-led-roulette/the-led-and-delay-abstractions.md) -->
   - [As abstrações `led` e `delay`](05-led-roulette/the-led-and-delay-abstractions.md)
-  <!-- - [The challenge](05-led-roulette/the-challenge.md) -->
   - [Desafio](05-led-roulette/the-challenge.md)
-  <!-- - [My solution](05-led-roulette/my-solution.md) -->
   - [Minha solução](05-led-roulette/my-solution.md)
-
-<!-- - [Hello, world!](06-hello-world/README.md) -->
 
 - [Olá, mundo!](06-hello-world/README.md)
   - [`panic!`](06-hello-world/panic.md)
 
-<!-- - [Registers](07-registers/README.md) -->
-
 - [Registros](07-registers/README.md)
   - [RTRM](07-registers/rtrm.md)
-  <!-- - [(mis)Optimization](07-registers/optimization.md) -->
   - [(des)Otimização](07-registers/optimization.md)
-  <!-- - [`0xBAAAAAAD` address](07-registers/bad-address.md) -->
   - [Endereço `0xBAAAAAAD`](07-registers/bad-address.md)
-  <!-- - [Spooky action at a distance](07-registers/spooky-action-at-a-distance.md) -->
   - [Ação assustadora à distância](07-registers/spooky-action-at-a-distance.md)
-  <!-- - [Type safe manipulation](07-registers/type-safe-manipulation.md) -->
   - [Manipulação segura de tipos](07-registers/type-safe-manipulation.md)
 
-<!-- - [LEDs, again](08-leds-again/README.md) -->
-
 - [LEDs, novamente](08-leds-again/README.md)
-  <!-- - [Power](08-leds-again/power.md) -->
   - [Energia](08-leds-again/power.md)
-  <!-- - [Configuration](08-leds-again/configuration.md) -->
   - [Configuração](08-leds-again/configuration.md)
-  <!-- - [The solution](08-leds-again/the-solution.md) -->
   - [Solução](08-leds-again/the-solution.md)
-
-<!-- - [Clocks and timers](09-clocks-and-timers/README.md) -->
 
 - [Relógios e temporizadores](09-clocks-and-timers/README.md)
   - [Delays com o loop `for`](09-clocks-and-timers/for-loop-delays.md)
   - [NOP](09-clocks-and-timers/nop.md)
-  <!-- - [One-shot timer](09-clocks-and-timers/one-shot-timer.md) -->
   - [Temporizador de disparo único](09-clocks-and-timers/one-shot-timer.md)
-  <!-- - [Initialization](09-clocks-and-timers/initialization.md) -->
   - [Inicialização](09-clocks-and-timers/initialization.md)
-  <!-- - [Busy waiting](09-clocks-and-timers/busy-waiting.md) -->
   - [Espera ocupada](09-clocks-and-timers/busy-waiting.md)
-  <!-- - [Putting it all together](09-clocks-and-timers/putting-it-all-together.md) -->
   - [Juntando tudo](09-clocks-and-timers/putting-it-all-together.md)
 
-<!-- - [Serial communication](10-serial-communication/README.md) -->
-
 - [Comunicação serial](10-serial-communication/README.md)
-  <!-- - [\*nix tooling](10-serial-communication/nix-tooling.md) -->
   - [Ferramentas para \*nix](10-serial-communication/nix-tooling.md)
-  <!-- - [Windows tooling](10-serial-communication/windows-tooling.md) -->
   - [Ferramentas para Windows](10-serial-communication/windows-tooling.md)
   - [Loopbacks](10-serial-communication/loopbacks.md)
+
 - [USART](11-usart/README.md)
-  <!-- - [Send a single byte](11-usart/send-a-single-byte.md) -->
   - [Enviando um único byte](11-usart/send-a-single-byte.md)
-  <!-- - [Send a string](11-usart/send-a-string.md) -->
   - [Enviando uma string](11-usart/send-a-string.md)
-  <!-- - [Buffer overrun](11-usart/buffer-overrun.md) -->
   - [Transbordamento de dados](11-usart/buffer-overrun.md)
   - [`uprintln!`](11-usart/uprintln.md)
-  <!-- - [Receive a single byte](11-usart/receive-a-single-byte.md) -->
   - [Recebendo um único byte](11-usart/receive-a-single-byte.md)
-  <!-- - [Echo server](11-usart/echo-server.md) -->
   - [Servidor de eco](11-usart/echo-server.md)
-  <!-- - [Reverse a string](11-usart/reverse-a-string.md) -->
   - [Invertendo uma string](11-usart/reverse-a-string.md)
-  <!-- - [My solution](11-usart/my-solution.md) -->
   - [Minha solução](11-usart/my-solution.md)
-
-<!-- - [Bluetooth setup](12-bluetooth-setup/README.md) -->
 
 - [Configuração do Bluetooth](12-bluetooth-setup/README.md)
   - [Linux](12-bluetooth-setup/linux.md)
   - [Loopback](12-bluetooth-setup/loopback.md)
-  <!-- - [AT commands](12-bluetooth-setup/at-commands.md) -->
   - [Comandos AT](12-bluetooth-setup/at-commands.md)
-
-<!-- - [Serial over Bluetooth](13-serial-over-bluetooth/README.md) -->
 
 - [Serial via Bluetooth](13-serial-over-bluetooth/README.md)
 - [I2C](14-i2c/README.md)
-  <!-- - [The general protocol](14-i2c/the-general-protocol.md) -->
   - [O protocolo geral](14-i2c/the-general-protocol.md)
   - [LSM303DLHC](14-i2c/lsm303dlhc.md)
-  <!-- - [Read a single register](14-i2c/read-a-single-register.md) -->
   - [Lendo um único registro](14-i2c/read-a-single-register.md)
-  <!-- - [The solution](14-i2c/the-solution.md) -->
   - [Solução](14-i2c/the-solution.md)
-  <!-- - [Read several registers](14-i2c/read-several-registers.md) -->
   - [Lendo vários registros](14-i2c/read-several-registers.md)
 
-<!-- - [LED compass](15-led-compass/README.md) -->
-
 - [Bússola de LED](15-led-compass/README.md)
-  <!-- - [Take 1](15-led-compass/take-1.md) -->
   - [Abordagem 1](15-led-compasentativa-1.md)
-  <!-- - [Solution 1](15-led-compass/solution-1.md) -->
   - [Solução 1](15-led-compass/solution-1.md)
-  <!-- - [Take 2](15-led-compass/take-2.md) -->
   - [Abordagem 2](15-led-compass/take-2.md)
-  <!-- - [Solution 2](15-led-compass/solution-2.md) -->
   - [Solução 2](15-led-compass/solution-2.md)
   - [Magnitude](15-led-compass/magnitude.md)
-  <!-- - [Calibration](15-led-compass/calibration.md) -->
   - [Calibração](15-led-compass/calibration.md)
 
-<!-- - [Punch-o-meter](16-punch-o-meter/README.md) -->
-
 - [Medidor de soco](16-punch-o-meter/README.md)
-  <!-- - [Gravity is up?](16-punch-o-meter/gravity-is-up.md) -->
   - [A gravidade está para cima?](16-punch-o-meter/gravity-is-up.md)
-  <!-- - [The challenge](16-punch-o-meter/the-challenge.md) -->
   - [Desafio](16-punch-o-meter/the-challenge.md)
-  <!-- - [My solution](16-punch-o-meter/my-solution.md) -->
   - [Minha solução](16-punch-o-meter/my-solution.md)
-
-<!-- - [What's left for you to explore](explore.md) -->
 
 - [O que resta para você explorar](explore.md)
 
 ---
 
-<!-- [General troubleshooting](appendix/1-general-troubleshooting/README.md) -->
-
 [Solucionando problemas gerais](appendix/1-general-troubleshooting/README.md)
-
-<!-- [How to use GDB](appendix/2-how-to-use-gdb/README.md) -->
 
 [Como usar o GDB](appendix/2-how-to-use-gdb/README.md)
 
