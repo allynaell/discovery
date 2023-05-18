@@ -22,7 +22,7 @@ seus níveis de abstração:
 
 <!-- ### Peripheral Access Crate (PAC) -->
 
-### Caixa de Acesso Periférico (PAC)
+### Peripheral Access Crate (PAC)
 
 <!-- The job of the PAC is to provide a safe (ish) direct interface to the
 peripherals of the chip, allowing you to configure every last bit however you
