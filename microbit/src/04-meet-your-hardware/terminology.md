@@ -105,14 +105,14 @@ relaciona com o segundo nível de abstração que conhecemos: os HALs. A ideia p
 trás do [`embedded-hal`] é fornecer um conjunto de traits que descrevem
 comportamentos que geralmente são compartilhados em todas as implementações de
 um periférico específico em todos os HALs. Por exemplo, sempre se espera ter
-funções capazes de ligar ou desligar a alimentação de um pino, por exemplo, para
+funções capazes de ligar ou desligar a alimentação de um pino para, por exemplo,
 acender e apagar um LED na placa. Isso nos permite escrever um driver para,
 digamos, um sensor de temperatura, que pode ser usado em qualquer chip para o
 qual exista uma implementação dos traits do [`embedded-hal`], simplesmente
 escrevendo o driver de tal forma que ele dependa apenas dos traits do
-[`embedded-hal`]. Drivers escritos dessa forma são chamados de plataforma
-agnósticos e, felizmente para nós, a maioria dos drivers no crates.io são
-realmente plataforma agnósticos.
+[`embedded-hal`]. Drivers escritos dessa forma são chamados de agnósticos de
+plataforma e, felizmente para nós, a maioria dos drivers no crates.io são
+realmente agnósticos de plataforma.
 
 [`embedded-hal`]: https://crates.io/crates/embedded-hal
 
