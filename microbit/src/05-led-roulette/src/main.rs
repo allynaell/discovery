@@ -3,8 +3,8 @@
 #![no_std]
 
 use cortex_m_rt::entry;
-use panic_halt as _;
 use microbit as _;
+use panic_halt as _;
 
 #[entry]
 fn main() -> ! {
@@ -12,6 +12,6 @@ fn main() -> ! {
     let x = 42;
     _y = x;
 
-    // infinite loop; just so we don't leave this stack frame
+    // loop infinito; apenas para não sairmos deste stack frame
     loop {}
 }
