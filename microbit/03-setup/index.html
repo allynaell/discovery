@@ -1,0 +1,359 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Configurando o ambiente de desenvolvimento - Discovery</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="Discover the world of microcontrollers through Rust">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body class="sidebar-visible no-js">
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('light')
+            html.classList.add(theme);
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var body = document.querySelector('body');
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../index.html">Introdução</a></li><li class="chapter-item expanded "><a href="../01-background/index.html"><strong aria-hidden="true">1.</strong> Contexto</a></li><li class="chapter-item expanded "><a href="../02-requirements/index.html"><strong aria-hidden="true">2.</strong> Requisitos de hardware/conhecimento</a></li><li class="chapter-item expanded "><a href="../03-setup/index.html" class="active"><strong aria-hidden="true">3.</strong> Configurando o ambiente de desenvolvimento</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../03-setup/linux.html"><strong aria-hidden="true">3.1.</strong> Linux</a></li><li class="chapter-item expanded "><a href="../03-setup/windows.html"><strong aria-hidden="true">3.2.</strong> Windows</a></li><li class="chapter-item expanded "><a href="../03-setup/macos.html"><strong aria-hidden="true">3.3.</strong> macOS</a></li><li class="chapter-item expanded "><a href="../03-setup/verify.html"><strong aria-hidden="true">3.4.</strong> Verifique a instalação</a></li></ol></li><li class="chapter-item expanded "><a href="../04-meet-your-hardware/index.html"><strong aria-hidden="true">4.</strong> Conheça seu hardware</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../04-meet-your-hardware/microbit-v2.html"><strong aria-hidden="true">4.1.</strong> micro:bit v2</a></li><li class="chapter-item expanded "><a href="../04-meet-your-hardware/microbit-v1.html"><strong aria-hidden="true">4.2.</strong> micro:bit v1</a></li><li class="chapter-item expanded "><a href="../04-meet-your-hardware/terminology.html"><strong aria-hidden="true">4.3.</strong> Terminologia de Rust para Sistemas Embarcados</a></li></ol></li><li class="chapter-item expanded "><a href="../05-led-roulette/index.html"><strong aria-hidden="true">5.</strong> Roleta LED</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../05-led-roulette/build-it.html"><strong aria-hidden="true">5.1.</strong> Construindo</a></li><li class="chapter-item expanded "><a href="../05-led-roulette/flash-it.html"><strong aria-hidden="true">5.2.</strong> Gravando</a></li><li class="chapter-item expanded "><a href="../05-led-roulette/debug-it.html"><strong aria-hidden="true">5.3.</strong> Depurando</a></li><li class="chapter-item expanded "><a href="../05-led-roulette/light-it-up.html"><strong aria-hidden="true">5.4.</strong> Acendendo</a></li><li class="chapter-item expanded "><a href="../05-led-roulette/it-blinks.html"><strong aria-hidden="true">5.5.</strong> Está piscando</a></li><li class="chapter-item expanded "><a href="../05-led-roulette/the-challenge.html"><strong aria-hidden="true">5.6.</strong> Desafio</a></li><li class="chapter-item expanded "><a href="../05-led-roulette/my-solution.html"><strong aria-hidden="true">5.7.</strong> Minha solução</a></li></ol></li><li class="chapter-item expanded "><a href="../06-serial-communication/index.html"><strong aria-hidden="true">6.</strong> Comunicação serial</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../06-serial-communication/nix-tooling.html"><strong aria-hidden="true">6.1.</strong> Ferramentas para *nix</a></li><li class="chapter-item expanded "><a href="../06-serial-communication/windows-tooling.html"><strong aria-hidden="true">6.2.</strong> Ferramentas para Windows</a></li></ol></li><li class="chapter-item expanded "><a href="../07-uart/index.html"><strong aria-hidden="true">7.</strong> UART</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../07-uart/send-a-single-byte.html"><strong aria-hidden="true">7.1.</strong> Enviando um único byte</a></li><li class="chapter-item expanded "><a href="../07-uart/send-a-string.html"><strong aria-hidden="true">7.2.</strong> Enviando uma string</a></li><li class="chapter-item expanded "><a href="../07-uart/naive-approch-write.html"><strong aria-hidden="true">7.3.</strong> Abordagem ingênua e write!</a></li><li class="chapter-item expanded "><a href="../07-uart/receive-a-single-byte.html"><strong aria-hidden="true">7.4.</strong> Recebendo um único byte</a></li><li class="chapter-item expanded "><a href="../07-uart/echo-server.html"><strong aria-hidden="true">7.5.</strong> Servidor de eco</a></li><li class="chapter-item expanded "><a href="../07-uart/reverse-a-string.html"><strong aria-hidden="true">7.6.</strong> Invertendo uma string</a></li><li class="chapter-item expanded "><a href="../07-uart/my-solution.html"><strong aria-hidden="true">7.7.</strong> Minha solução</a></li></ol></li><li class="chapter-item expanded "><a href="../08-i2c/index.html"><strong aria-hidden="true">8.</strong> I2C</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../08-i2c/the-general-protocol.html"><strong aria-hidden="true">8.1.</strong> O protocolo geral</a></li><li class="chapter-item expanded "><a href="../08-i2c/lsm303agr.html"><strong aria-hidden="true">8.2.</strong> LSM303AGR</a></li><li class="chapter-item expanded "><a href="../08-i2c/read-a-single-register.html"><strong aria-hidden="true">8.3.</strong> Lendo um único registro</a></li><li class="chapter-item expanded "><a href="../08-i2c/using-a-driver.html"><strong aria-hidden="true">8.4.</strong> Usando um driver</a></li><li class="chapter-item expanded "><a href="../08-i2c/the-challenge.html"><strong aria-hidden="true">8.5.</strong> Desafio</a></li><li class="chapter-item expanded "><a href="../08-i2c/my-solution.html"><strong aria-hidden="true">8.6.</strong> Minha solução</a></li></ol></li><li class="chapter-item expanded "><a href="../09-led-compass/index.html"><strong aria-hidden="true">9.</strong> Bússola de LED</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../09-led-compass/calibration.html"><strong aria-hidden="true">9.1.</strong> Calibração</a></li><li class="chapter-item expanded "><a href="../09-led-compass/take-1.html"><strong aria-hidden="true">9.2.</strong> Abordagem 1</a></li><li class="chapter-item expanded "><a href="../09-led-compass/solution-1.html"><strong aria-hidden="true">9.3.</strong> Solução 1</a></li><li class="chapter-item expanded "><a href="../09-led-compass/take-2.html"><strong aria-hidden="true">9.4.</strong> Abordagem 2</a></li><li class="chapter-item expanded "><a href="../09-led-compass/solution-2.html"><strong aria-hidden="true">9.5.</strong> Solução 2</a></li><li class="chapter-item expanded "><a href="../09-led-compass/magnitude.html"><strong aria-hidden="true">9.6.</strong> Magnitude</a></li></ol></li><li class="chapter-item expanded "><a href="../10-punch-o-meter/index.html"><strong aria-hidden="true">10.</strong> Medidor de soco</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../10-punch-o-meter/gravity-is-up.html"><strong aria-hidden="true">10.1.</strong> A gravidade está para cima?</a></li><li class="chapter-item expanded "><a href="../10-punch-o-meter/the-challenge.html"><strong aria-hidden="true">10.2.</strong> Desafio</a></li><li class="chapter-item expanded "><a href="../10-punch-o-meter/my-solution.html"><strong aria-hidden="true">10.3.</strong> Minha solução</a></li></ol></li><li class="chapter-item expanded "><a href="../explore.html"><strong aria-hidden="true">11.</strong> O que resta para você explorar</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><a href="../appendix/1-general-troubleshooting/index.html">Solucionando problemas gerais</a></li><li class="chapter-item expanded affix "><a href="../appendix/2-how-to-use-gdb/index.html">Como usar o GDB</a></li><li class="spacer"></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Discovery</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/rust-embedded/discovery/" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <!-- # Setting up a development environment -->
+<h1 id="configurando-o-ambiente-de-desenvolvimento"><a class="header" href="#configurando-o-ambiente-de-desenvolvimento">Configurando o ambiente de desenvolvimento</a></h1>
+<!-- Dealing with microcontrollers involves several tools as we'll be dealing with an
+architecture different from your computer's and we'll have to run and debug
+programs on a "remote" device. -->
+<p>Lidar com microcontroladores envolve o uso de várias ferramentas, pois estaremos
+lidando com uma arquitetura diferente da arquitetura do seu computador e teremos
+que executar e depurar programas em um dispositivo "remoto".</p>
+<!-- ## Documentation -->
+<h2 id="documentação"><a class="header" href="#documentação">Documentação</a></h2>
+<!-- Tooling is not everything though. Without documentation, it is pretty much
+impossible to work with microcontrollers. -->
+<p>No entanto, as ferramentas não são tudo. Sem documentação, é praticamente
+impossível trabalhar com microcontroladores.</p>
+<!-- We'll be referring to all these documents throughout this book: -->
+<p>Vamos fazer referência a todos esses documentos ao longo deste livro:</p>
+<ul>
+<li><a href="https://www.st.com/resource/en/datasheet/lsm303agr.pdf">LSM303AGR</a></li>
+</ul>
+<!-- ## Tools -->
+<h2 id="ferramentas"><a class="header" href="#ferramentas">Ferramentas</a></h2>
+<!-- We'll use all the tools listed below. Where a minimum version is not specified,
+any recent version should work but we have listed the version we have tested. -->
+<p>Vamos utilizar todas as ferramentas listadas abaixo. Onde uma versão mínima não
+for especificada, qualquer versão recente deve funcionar, mas listamos a versão
+que testamos.</p>
+<!-- - Rust 1.57.0 or a newer toolchain. -->
+<ul>
+<li>Rust 1.57.0 ou um toolchain mais recente.</li>
+</ul>
+<!-- - `gdb-multiarch`. Tested version: 10.2. Other versions will most likely work as
+  well though If your distribution/platform does not have `gdb-multiarch`
+  available `arm-none-eabi-gdb` will do the trick as well. Furthermore, some
+  normal `gdb` binaries are built with multiarch capabilities as well, you can
+  find further information about this in the sub chapters. -->
+<ul>
+<li><code>gdb-multiarch</code>. Versão testada: 10.2. Outras versões provavelmente também
+funcionarão bem, mas se a sua distribuição/plataforma não tiver o
+<code>gdb-multiarch</code> disponível, <code>arm-none-eabi-gdb</code> também servirá. Além disso,
+alguns binários normais do <code>gdb</code> são construídos com recursos
+multiarquitetura, você pode encontrar mais informações sobre isso nos
+subcapítulos.</li>
+</ul>
+<!-- - [`cargo-binutils`]. Version 0.3.3 or newer. -->
+<ul>
+<li><a href="https://github.com/rust-embedded/cargo-binutils"><code>cargo-binutils</code></a>. Versão 0.3.3 ou mais recente.</li>
+</ul>
+<!-- - [`cargo-embed`]. Version 0.18.0 or newer. -->
+<ul>
+<li><a href="https://github.com/probe-rs/cargo-embed"><code>cargo-embed</code></a>. Version 0.18.0 ou mais recente.</li>
+</ul>
+<!-- - `minicom` on Linux and macOS. Tested version: 2.7.1. Other versions will most
+  likely work as well though -->
+<ul>
+<li><code>minicom</code> para Linux e macOS. Versão testada: 2.7.1. Outras versões
+provavelmente também funcionarão.</li>
+</ul>
+<!-- - `PuTTY` on Windows. -->
+<ul>
+<li><code>PuTTY</code> para Windows.</li>
+</ul>
+<!-- Next, follow OS-agnostic installation instructions for a few of the tools: -->
+<p>Em seguida, siga as instruções de instalação independentes do sistema
+operacional para algumas das ferramentas.</p>
+<h3 id="rustc--cargo"><a class="header" href="#rustc--cargo"><code>rustc</code> &amp; Cargo</a></h3>
+<!-- Install rustup by following the instructions at
+[https://rustup.rs](https://rustup.rs). -->
+<p>Instale o rustup seguindo as instruções em
+<a href="https://rustup.rs">https://rustup.rs</a>.</p>
+<!-- If you already have rustup installed double check that you are on the stable
+channel and your stable toolchain is up-to-date. `rustc -V` should return a date
+newer than the one shown below: -->
+<p>Se você já tiver o rustup instalado, verifique se você está no canal estável e
+se sua toolchain estável está atualizada. <code>rustc -V</code> deve retornar uma data mais
+recente do que a mostrada abaixo:</p>
+<pre><code class="language-console">$ rustc -V
+rustc 1.53.0 (53cb7b09b 2021-06-17)
+</code></pre>
+<h3 id="cargo-binutils"><a class="header" href="#cargo-binutils"><code>cargo-binutils</code></a></h3>
+<pre><code class="language-console">$ rustup component add llvm-tools-preview
+
+$ cargo install cargo-binutils --vers 0.3.3
+
+$ cargo size --version
+cargo-size 0.3.3
+</code></pre>
+<h3 id="cargo-embed"><a class="header" href="#cargo-embed"><code>cargo-embed</code></a></h3>
+<!-- In order to install cargo-embed, first install its
+[prerequisites](https://github.com/probe-rs/probe-rs/blob/master/cargo-embed/README.md#prerequisites).
+Then install it with cargo: -->
+<p>Para instalar o cargo-embed, primeiro instale seus
+<a href="https://github.com/probe-rs/probe-rs/blob/master/cargo-embed/README.md#prerequisites">pré-requisitos</a>.
+Em seguida, instale-o com cargo:</p>
+<pre><code class="language-console">$ cargo install cargo-embed --vers 0.11.0
+
+$ cargo embed --version
+cargo-embed 0.11.0
+git commit: crates.io
+</code></pre>
+<!-- ### This repository -->
+<h3 id="este-repositório"><a class="header" href="#este-repositório">Este repositório</a></h3>
+<!-- Since this book also contains some small Rust code bases used in various
+chapters you will also have to download its source code. You can do this in one
+of the following ways: -->
+<p>Como este livro também contém algumas pequenas bases de código Rust usadas em
+vários capítulos, você também terá que baixar seu código-fonte. Você pode fazer
+isso de uma das seguintes maneiras:</p>
+<!-- - Visit the [repository](https://github.com/rust-embedded/discovery/), click the
+  green "Code" button and then the "Download Zip" one -->
+<ul>
+<li>Visite o <a href="https://github.com/rust-embedded/discovery/">repositório</a>, clique no
+botão verde "Code" e depois no botão "Download Zip"</li>
+</ul>
+<!-- - Clone it using git (if you know git you presumably already have it installed)
+  from the same repository as linked in the zip approach -->
+<ul>
+<li>Clone-o usando git (se você conhece o git, provavelmente já o tem instalado)
+do mesmo repositório mencionado na abordagem do zip</li>
+</ul>
+<!-- ### OS specific instructions -->
+<h3 id="instruções-específicas-do-sistema-operacional"><a class="header" href="#instruções-específicas-do-sistema-operacional">Instruções específicas do sistema operacional</a></h3>
+<!-- Now follow the instructions specific to the OS you are using: -->
+<p>Agora siga as instruções específicas para o sistema operacional que você está
+usando:</p>
+<ul>
+<li><a href="linux.html">Linux</a></li>
+<li><a href="windows.html">Windows</a></li>
+<li><a href="macos.html">macOS</a></li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../02-requirements/index.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../03-setup/linux.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../02-requirements/index.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../03-setup/linux.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>

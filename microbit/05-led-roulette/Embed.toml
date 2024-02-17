@@ -1,0 +1,12 @@
+[default.general]
+# chip = "nrf52833_xxAA" # para micro:bit V2, descomente essa linha
+# chip = "nrf51822_xxAA" # para micro:bit V1, descomente essa linha
+
+[default.reset]
+halt_afterwards = true
+
+[default.rtt]
+enabled = false
+
+[default.gdb]
+enabled = true

@@ -1,0 +1,378 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Contexto - Discovery</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="Discover the world of microcontrollers through Rust">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body class="sidebar-visible no-js">
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('light')
+            html.classList.add(theme);
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var body = document.querySelector('body');
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../index.html">Introdução</a></li><li class="chapter-item expanded "><a href="../01-background/index.html" class="active"><strong aria-hidden="true">1.</strong> Contexto</a></li><li class="chapter-item expanded "><a href="../02-requirements/index.html"><strong aria-hidden="true">2.</strong> Requisitos de hardware/conhecimento</a></li><li class="chapter-item expanded "><a href="../03-setup/index.html"><strong aria-hidden="true">3.</strong> Configurando o ambiente de desenvolvimento</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../03-setup/linux.html"><strong aria-hidden="true">3.1.</strong> Linux</a></li><li class="chapter-item expanded "><a href="../03-setup/windows.html"><strong aria-hidden="true">3.2.</strong> Windows</a></li><li class="chapter-item expanded "><a href="../03-setup/macos.html"><strong aria-hidden="true">3.3.</strong> macOS</a></li><li class="chapter-item expanded "><a href="../03-setup/verify.html"><strong aria-hidden="true">3.4.</strong> Verifique a instalação</a></li></ol></li><li class="chapter-item expanded "><a href="../04-meet-your-hardware/index.html"><strong aria-hidden="true">4.</strong> Conheça seu hardware</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../04-meet-your-hardware/microbit-v2.html"><strong aria-hidden="true">4.1.</strong> micro:bit v2</a></li><li class="chapter-item expanded "><a href="../04-meet-your-hardware/microbit-v1.html"><strong aria-hidden="true">4.2.</strong> micro:bit v1</a></li><li class="chapter-item expanded "><a href="../04-meet-your-hardware/terminology.html"><strong aria-hidden="true">4.3.</strong> Terminologia de Rust para Sistemas Embarcados</a></li></ol></li><li class="chapter-item expanded "><a href="../05-led-roulette/index.html"><strong aria-hidden="true">5.</strong> Roleta LED</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../05-led-roulette/build-it.html"><strong aria-hidden="true">5.1.</strong> Construindo</a></li><li class="chapter-item expanded "><a href="../05-led-roulette/flash-it.html"><strong aria-hidden="true">5.2.</strong> Gravando</a></li><li class="chapter-item expanded "><a href="../05-led-roulette/debug-it.html"><strong aria-hidden="true">5.3.</strong> Depurando</a></li><li class="chapter-item expanded "><a href="../05-led-roulette/light-it-up.html"><strong aria-hidden="true">5.4.</strong> Acendendo</a></li><li class="chapter-item expanded "><a href="../05-led-roulette/it-blinks.html"><strong aria-hidden="true">5.5.</strong> Está piscando</a></li><li class="chapter-item expanded "><a href="../05-led-roulette/the-challenge.html"><strong aria-hidden="true">5.6.</strong> Desafio</a></li><li class="chapter-item expanded "><a href="../05-led-roulette/my-solution.html"><strong aria-hidden="true">5.7.</strong> Minha solução</a></li></ol></li><li class="chapter-item expanded "><a href="../06-serial-communication/index.html"><strong aria-hidden="true">6.</strong> Comunicação serial</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../06-serial-communication/nix-tooling.html"><strong aria-hidden="true">6.1.</strong> Ferramentas para *nix</a></li><li class="chapter-item expanded "><a href="../06-serial-communication/windows-tooling.html"><strong aria-hidden="true">6.2.</strong> Ferramentas para Windows</a></li></ol></li><li class="chapter-item expanded "><a href="../07-uart/index.html"><strong aria-hidden="true">7.</strong> UART</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../07-uart/send-a-single-byte.html"><strong aria-hidden="true">7.1.</strong> Enviando um único byte</a></li><li class="chapter-item expanded "><a href="../07-uart/send-a-string.html"><strong aria-hidden="true">7.2.</strong> Enviando uma string</a></li><li class="chapter-item expanded "><a href="../07-uart/naive-approch-write.html"><strong aria-hidden="true">7.3.</strong> Abordagem ingênua e write!</a></li><li class="chapter-item expanded "><a href="../07-uart/receive-a-single-byte.html"><strong aria-hidden="true">7.4.</strong> Recebendo um único byte</a></li><li class="chapter-item expanded "><a href="../07-uart/echo-server.html"><strong aria-hidden="true">7.5.</strong> Servidor de eco</a></li><li class="chapter-item expanded "><a href="../07-uart/reverse-a-string.html"><strong aria-hidden="true">7.6.</strong> Invertendo uma string</a></li><li class="chapter-item expanded "><a href="../07-uart/my-solution.html"><strong aria-hidden="true">7.7.</strong> Minha solução</a></li></ol></li><li class="chapter-item expanded "><a href="../08-i2c/index.html"><strong aria-hidden="true">8.</strong> I2C</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../08-i2c/the-general-protocol.html"><strong aria-hidden="true">8.1.</strong> O protocolo geral</a></li><li class="chapter-item expanded "><a href="../08-i2c/lsm303agr.html"><strong aria-hidden="true">8.2.</strong> LSM303AGR</a></li><li class="chapter-item expanded "><a href="../08-i2c/read-a-single-register.html"><strong aria-hidden="true">8.3.</strong> Lendo um único registro</a></li><li class="chapter-item expanded "><a href="../08-i2c/using-a-driver.html"><strong aria-hidden="true">8.4.</strong> Usando um driver</a></li><li class="chapter-item expanded "><a href="../08-i2c/the-challenge.html"><strong aria-hidden="true">8.5.</strong> Desafio</a></li><li class="chapter-item expanded "><a href="../08-i2c/my-solution.html"><strong aria-hidden="true">8.6.</strong> Minha solução</a></li></ol></li><li class="chapter-item expanded "><a href="../09-led-compass/index.html"><strong aria-hidden="true">9.</strong> Bússola de LED</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../09-led-compass/calibration.html"><strong aria-hidden="true">9.1.</strong> Calibração</a></li><li class="chapter-item expanded "><a href="../09-led-compass/take-1.html"><strong aria-hidden="true">9.2.</strong> Abordagem 1</a></li><li class="chapter-item expanded "><a href="../09-led-compass/solution-1.html"><strong aria-hidden="true">9.3.</strong> Solução 1</a></li><li class="chapter-item expanded "><a href="../09-led-compass/take-2.html"><strong aria-hidden="true">9.4.</strong> Abordagem 2</a></li><li class="chapter-item expanded "><a href="../09-led-compass/solution-2.html"><strong aria-hidden="true">9.5.</strong> Solução 2</a></li><li class="chapter-item expanded "><a href="../09-led-compass/magnitude.html"><strong aria-hidden="true">9.6.</strong> Magnitude</a></li></ol></li><li class="chapter-item expanded "><a href="../10-punch-o-meter/index.html"><strong aria-hidden="true">10.</strong> Medidor de soco</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../10-punch-o-meter/gravity-is-up.html"><strong aria-hidden="true">10.1.</strong> A gravidade está para cima?</a></li><li class="chapter-item expanded "><a href="../10-punch-o-meter/the-challenge.html"><strong aria-hidden="true">10.2.</strong> Desafio</a></li><li class="chapter-item expanded "><a href="../10-punch-o-meter/my-solution.html"><strong aria-hidden="true">10.3.</strong> Minha solução</a></li></ol></li><li class="chapter-item expanded "><a href="../explore.html"><strong aria-hidden="true">11.</strong> O que resta para você explorar</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><a href="../appendix/1-general-troubleshooting/index.html">Solucionando problemas gerais</a></li><li class="chapter-item expanded affix "><a href="../appendix/2-how-to-use-gdb/index.html">Como usar o GDB</a></li><li class="spacer"></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Discovery</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/rust-embedded/discovery/" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <!-- # Background -->
+<h1 id="contexto"><a class="header" href="#contexto">Contexto</a></h1>
+<!-- ## What's a microcontroller? -->
+<h2 id="o-que-é-um-microcontrolador"><a class="header" href="#o-que-é-um-microcontrolador">O que é um microcontrolador?</a></h2>
+<!-- A microcontroller is a _system_ on a chip. Whereas your computer is made up of
+several discrete components: a processor, RAM, storage, an Ethernet port, etc.;
+a microcontroller has all those types of components built into a single "chip"
+or package. This makes it possible to build systems with fewer parts. -->
+<p>Um microcontrolador é um <em>sistema</em> em um chip. Enquanto um computador é composto
+por vários componentes discretos, como um processador, RAM, armazenamento, uma
+porta Ethernet, etc., um microcontrolador tem todos esses tipos de componentes
+incorporados em um único "chip" ou pacote. Isso torna possível construir
+sistemas com menos peças.</p>
+<!-- ## What can you do with a microcontroller? -->
+<h2 id="o-que-você-pode-fazer-com-um-microcontrolador"><a class="header" href="#o-que-você-pode-fazer-com-um-microcontrolador">O que você pode fazer com um microcontrolador?</a></h2>
+<!-- Lots of things! Microcontrollers are the central part of what are known as
+"_embedded_ systems". Embedded systems are everywhere, but you don't usually
+notice them. They control the machines that wash your clothes, print your
+documents, and cook your food. Embedded systems keep the buildings that you live
+and work in at a comfortable temperature, and control the components that make
+the vehicles you travel in stop and go. -->
+<p>Muitas coisas! Os microcontroladores são a parte central do que são conhecidos
+como "sistemas <em>embarcados</em>". Os sistemas embarcados estão em toda parte, mas
+geralmente você não os percebe. Eles controlam as máquinas que lavam suas
+roupas, imprimem seus documentos e preparam sua comida. Os sistemas embarcados
+mantêm os prédios onde você vive e trabalha em uma temperatura confortável e
+controlam os componentes que fazem os veículos nos quais você viaja pararem e
+seguirem em frente.</p>
+<!-- Most embedded systems operate without user intervention. Even if they expose a
+user interface like a washing machine does; most of their operation is done on
+their own. -->
+<p>A maioria dos sistemas embarcados opera sem intervenção do usuário. Mesmo que
+eles tenham uma interface de usuário, como uma máquina de lavar roupa, a maior
+parte de sua operação é feita por conta própria.</p>
+<!-- Embedded systems are often used to _control_ a physical process. To make this
+possible, they have one or more devices to tell them about the state of the
+world ("sensors"), and one or more devices which allow them to change things
+("actuators"). For example, a building climate control system might have: -->
+<p>Os sistemas embarcados são frequentemente usados para <em>controlar</em> um processo
+físico. Para que isso seja possível, eles possuem um ou mais dispositivos que
+informam sobre o estado do mundo ("sensores") e um ou mais dispositivos que
+permitem fazer alterações ("atuadores"). Por exemplo, um sistema de controle de
+clima de um prédio pode ter:</p>
+<!-- - Sensors which measure temperature and humidity in various locations. -->
+<ul>
+<li>Sensores que medem temperatura e umidade em vários locais.</li>
+</ul>
+<!-- - Actuators which control the speed of fans. -->
+<ul>
+<li>Atuadores que controlam a velocidade dos ventiladores.</li>
+</ul>
+<!-- - Actuators which cause heat to be added or removed from the building. -->
+<ul>
+<li>Atuadores que fazem com que o calor seja adicionado ou removido do prédio.</li>
+</ul>
+<!-- ## When should I use a microcontroller? -->
+<h2 id="quando-devo-usar-um-microcontrolador"><a class="header" href="#quando-devo-usar-um-microcontrolador">Quando devo usar um microcontrolador?</a></h2>
+<!-- Many of the embedded systems listed above could be implemented with a computer
+running Linux (for example a "Raspberry Pi"). Why use a microcontroller instead?
+Sounds like it might be harder to develop a program. -->
+<p>Muitos dos sistemas embarcados listados acima poderiam ser implementados com um
+computador executando Linux (por exemplo, um "Raspberry Pi"). Por que usar um
+microcontrolador em vez disso? Parece mais difícil para desenvolver um programa.</p>
+<!-- Some reasons might include: -->
+<p>Alguns motivos podem incluir:</p>
+<!-- **Cost.** A microcontroller is much cheaper than a general purpose computer. Not
+only is the microcontroller cheaper; it also requires many fewer external
+electrical components to operate. This makes Printed Circuit Boards (PCB)
+smaller and cheaper to design and manufacture. -->
+<p><strong>Custo.</strong> Um microcontrolador é muito mais barato do que um computador de
+propósito geral. Além de ser mais barato, o microcontrolador também requer menos
+componentes elétricos externos para funcionar. Isso torna as Placas de Circuito
+Impresso (PCB) menores e mais baratas de serem projetadas e fabricadas.</p>
+<!-- **Power consumption.** Most microcontrollers consume a fraction of the power of
+a full blown processor. For applications which run on batteries, that makes a
+huge difference. -->
+<p><strong>Consumo de energia.</strong> A maioria dos microcontroladores consome uma fração da
+energia de um processador completo. Para aplicativos que funcionam com baterias,
+isso faz uma enorme diferença.</p>
+<!-- **Responsiveness.** To accomplish their purpose, some embedded systems must
+always react within a limited time interval (e.g. the "anti-lock" braking system
+of a car). If the system misses this type of _deadline_, a catastrophic failure
+might occur. Such a deadline is called a "hard real time" requirement. An
+embedded system which is bound by such a deadline is referred to as a "hard
+real-time system". A general purpose computer and OS usually has many software
+components which share the computer's processing resources. This makes it harder
+to guarantee execution of a program within tight time constraints. -->
+<p><strong>Responsividade.</strong> Para cumprir seu propósito, alguns sistemas embarcados devem
+sempre reagir dentro de um intervalo de tempo limitado (por exemplo, o sistema
+de freio "antibloqueio" de um carro). Se o sistema perder esse tipo de <em>prazo</em>,
+uma falha catastrófica pode ocorrer. Esse tipo de prazo é chamado de requisito
+de "tempo real rígido". Um sistema embarcado que está vinculado a esse prazo é
+chamado de "sistema de tempo real rígido". Um computador de propósito geral e um
+sistema operacional geralmente possuem muitos componentes de software que
+compartilham os recursos de processamento do computador. Isso torna mais difícil
+garantir a execução de um programa dentro de restrições de tempo rigorosas.</p>
+<!-- **Reliability.** In systems with fewer components (both hardware and software),
+there is less to go wrong! -->
+<p><strong>Confiabilidade.</strong> Em sistemas com menos componentes (tanto de hardware quanto
+de software), há menos coisas que podem dar errado!</p>
+<!-- ## When should I _not_ use a microcontroller? -->
+<h2 id="quando-não-devo-usar-um-microcontrolador"><a class="header" href="#quando-não-devo-usar-um-microcontrolador">Quando <em>não</em> devo usar um microcontrolador?</a></h2>
+<!-- Where heavy computations are involved. To keep their power consumption low,
+microcontrollers have very limited computational resources available to them.
+For example, some microcontrollers don't even have hardware support for floating
+point operations. On those devices, performing a simple addition of single
+precision numbers can take hundreds of CPU cycles. -->
+<p>Onde computações pesadas estão envolvidas. Para manter seu consumo de energia
+baixo, os microcontroladores têm recursos computacionais muito limitados. Por
+exemplo, alguns microcontroladores nem mesmo possuem suporte de hardware para
+operações de ponto flutuante. Nesses dispositivos, realizar uma simples adição
+de números de precisão única pode levar centenas de ciclos de CPU.</p>
+<!-- ## Why use Rust and not C? -->
+<h2 id="por-que-usar-rust-e-não-c"><a class="header" href="#por-que-usar-rust-e-não-c">Por que usar Rust e não C?</a></h2>
+<!-- Hopefully, I don't need to convince you here as you are probably familiar with
+the language differences between Rust and C. One point I do want to bring up is
+package management. C lacks an official, widely accepted package management
+solution whereas Rust has Cargo. This makes development _much_ easier. And, IMO,
+easy package management encourages code reuse because libraries can be easily
+integrated into an application which is also a good thing as libraries get more
+"battle testing". -->
+<p>Espero não precisar convencê-lo aqui, pois você provavelmente está familiarizado
+com as diferenças entre as linguagens Rust e C. Um ponto que eu gostaria de
+mencionar é o gerenciamento de pacotes. C carece de uma solução oficial e
+amplamente aceita de gerenciamento de pacotes, enquanto Rust possui o Cargo.
+Isso facilita <em>muito</em> o desenvolvimento. Além disso, na minha opinião, o
+gerenciamento fácil de pacotes incentiva a reutilização de código porque as
+bibliotecas podem ser facilmente integradas a um aplicativo, o que também é algo
+positivo, pois as bibliotecas recebem mais "testes de batalha".</p>
+<!-- ## Why should I not use Rust? -->
+<h2 id="por-que-não-devo-usar-rust"><a class="header" href="#por-que-não-devo-usar-rust">Por que não devo usar Rust?</a></h2>
+<!-- Or why should I prefer C over Rust? -->
+<p>Ou por que eu deveria preferir C em vez de Rust?</p>
+<!-- The C ecosystem is way more mature. Off the shelf solutions for several problems
+already exist. If you need to control a time sensitive process, you can grab one
+of the existing commercial Real Time Operating Systems (RTOS) out there and
+solve your problem. There are no commercial, production-grade RTOSes in Rust yet
+so you would have to either create one yourself or try one of the ones that are
+in development. You can find a list of those in the [Awesome Embedded Rust]
+repository. -->
+<p>O ecossistema do C é muito mais maduro. Já existem soluções prontas para vários
+problemas. Se você precisa controlar um processo sensível ao tempo, pode
+adquirir um dos Sistemas Operacionais de Tempo Real (RTOS) comerciais existentes
+e resolver seu problema. Ainda não existem Sistemas Operacionais de Tempo Real
+em Rust que sejam comerciais e estejam em nível de produção, então você teria
+que criar um por conta própria ou experimentar um dos que estão em
+desenvolvimento. Você pode encontrar uma lista deles no repositório
+<a href="https://github.com/rust-embedded/awesome-embedded-rust#real-time-operating-system-rtos">Awesome Embedded Rust</a>.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../index.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../02-requirements/index.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../index.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../02-requirements/index.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>

@@ -1,0 +1,354 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Roleta LED - Discovery</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="Discover the world of microcontrollers through Rust">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body class="sidebar-visible no-js">
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('light')
+            html.classList.add(theme);
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var body = document.querySelector('body');
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../index.html">Introdução</a></li><li class="chapter-item expanded "><a href="../01-background/index.html"><strong aria-hidden="true">1.</strong> Contexto</a></li><li class="chapter-item expanded "><a href="../02-requirements/index.html"><strong aria-hidden="true">2.</strong> Requisitos de hardware/conhecimento</a></li><li class="chapter-item expanded "><a href="../03-setup/index.html"><strong aria-hidden="true">3.</strong> Configurando o ambiente de desenvolvimento</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../03-setup/linux.html"><strong aria-hidden="true">3.1.</strong> Linux</a></li><li class="chapter-item expanded "><a href="../03-setup/windows.html"><strong aria-hidden="true">3.2.</strong> Windows</a></li><li class="chapter-item expanded "><a href="../03-setup/macos.html"><strong aria-hidden="true">3.3.</strong> macOS</a></li><li class="chapter-item expanded "><a href="../03-setup/verify.html"><strong aria-hidden="true">3.4.</strong> Verifique a instalação</a></li></ol></li><li class="chapter-item expanded "><a href="../04-meet-your-hardware/index.html"><strong aria-hidden="true">4.</strong> Conheça seu hardware</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../04-meet-your-hardware/microbit-v2.html"><strong aria-hidden="true">4.1.</strong> micro:bit v2</a></li><li class="chapter-item expanded "><a href="../04-meet-your-hardware/microbit-v1.html"><strong aria-hidden="true">4.2.</strong> micro:bit v1</a></li><li class="chapter-item expanded "><a href="../04-meet-your-hardware/terminology.html"><strong aria-hidden="true">4.3.</strong> Terminologia de Rust para Sistemas Embarcados</a></li></ol></li><li class="chapter-item expanded "><a href="../05-led-roulette/index.html" class="active"><strong aria-hidden="true">5.</strong> Roleta LED</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../05-led-roulette/build-it.html"><strong aria-hidden="true">5.1.</strong> Construindo</a></li><li class="chapter-item expanded "><a href="../05-led-roulette/flash-it.html"><strong aria-hidden="true">5.2.</strong> Gravando</a></li><li class="chapter-item expanded "><a href="../05-led-roulette/debug-it.html"><strong aria-hidden="true">5.3.</strong> Depurando</a></li><li class="chapter-item expanded "><a href="../05-led-roulette/light-it-up.html"><strong aria-hidden="true">5.4.</strong> Acendendo</a></li><li class="chapter-item expanded "><a href="../05-led-roulette/it-blinks.html"><strong aria-hidden="true">5.5.</strong> Está piscando</a></li><li class="chapter-item expanded "><a href="../05-led-roulette/the-challenge.html"><strong aria-hidden="true">5.6.</strong> Desafio</a></li><li class="chapter-item expanded "><a href="../05-led-roulette/my-solution.html"><strong aria-hidden="true">5.7.</strong> Minha solução</a></li></ol></li><li class="chapter-item expanded "><a href="../06-serial-communication/index.html"><strong aria-hidden="true">6.</strong> Comunicação serial</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../06-serial-communication/nix-tooling.html"><strong aria-hidden="true">6.1.</strong> Ferramentas para *nix</a></li><li class="chapter-item expanded "><a href="../06-serial-communication/windows-tooling.html"><strong aria-hidden="true">6.2.</strong> Ferramentas para Windows</a></li></ol></li><li class="chapter-item expanded "><a href="../07-uart/index.html"><strong aria-hidden="true">7.</strong> UART</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../07-uart/send-a-single-byte.html"><strong aria-hidden="true">7.1.</strong> Enviando um único byte</a></li><li class="chapter-item expanded "><a href="../07-uart/send-a-string.html"><strong aria-hidden="true">7.2.</strong> Enviando uma string</a></li><li class="chapter-item expanded "><a href="../07-uart/naive-approch-write.html"><strong aria-hidden="true">7.3.</strong> Abordagem ingênua e write!</a></li><li class="chapter-item expanded "><a href="../07-uart/receive-a-single-byte.html"><strong aria-hidden="true">7.4.</strong> Recebendo um único byte</a></li><li class="chapter-item expanded "><a href="../07-uart/echo-server.html"><strong aria-hidden="true">7.5.</strong> Servidor de eco</a></li><li class="chapter-item expanded "><a href="../07-uart/reverse-a-string.html"><strong aria-hidden="true">7.6.</strong> Invertendo uma string</a></li><li class="chapter-item expanded "><a href="../07-uart/my-solution.html"><strong aria-hidden="true">7.7.</strong> Minha solução</a></li></ol></li><li class="chapter-item expanded "><a href="../08-i2c/index.html"><strong aria-hidden="true">8.</strong> I2C</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../08-i2c/the-general-protocol.html"><strong aria-hidden="true">8.1.</strong> O protocolo geral</a></li><li class="chapter-item expanded "><a href="../08-i2c/lsm303agr.html"><strong aria-hidden="true">8.2.</strong> LSM303AGR</a></li><li class="chapter-item expanded "><a href="../08-i2c/read-a-single-register.html"><strong aria-hidden="true">8.3.</strong> Lendo um único registro</a></li><li class="chapter-item expanded "><a href="../08-i2c/using-a-driver.html"><strong aria-hidden="true">8.4.</strong> Usando um driver</a></li><li class="chapter-item expanded "><a href="../08-i2c/the-challenge.html"><strong aria-hidden="true">8.5.</strong> Desafio</a></li><li class="chapter-item expanded "><a href="../08-i2c/my-solution.html"><strong aria-hidden="true">8.6.</strong> Minha solução</a></li></ol></li><li class="chapter-item expanded "><a href="../09-led-compass/index.html"><strong aria-hidden="true">9.</strong> Bússola de LED</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../09-led-compass/calibration.html"><strong aria-hidden="true">9.1.</strong> Calibração</a></li><li class="chapter-item expanded "><a href="../09-led-compass/take-1.html"><strong aria-hidden="true">9.2.</strong> Abordagem 1</a></li><li class="chapter-item expanded "><a href="../09-led-compass/solution-1.html"><strong aria-hidden="true">9.3.</strong> Solução 1</a></li><li class="chapter-item expanded "><a href="../09-led-compass/take-2.html"><strong aria-hidden="true">9.4.</strong> Abordagem 2</a></li><li class="chapter-item expanded "><a href="../09-led-compass/solution-2.html"><strong aria-hidden="true">9.5.</strong> Solução 2</a></li><li class="chapter-item expanded "><a href="../09-led-compass/magnitude.html"><strong aria-hidden="true">9.6.</strong> Magnitude</a></li></ol></li><li class="chapter-item expanded "><a href="../10-punch-o-meter/index.html"><strong aria-hidden="true">10.</strong> Medidor de soco</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../10-punch-o-meter/gravity-is-up.html"><strong aria-hidden="true">10.1.</strong> A gravidade está para cima?</a></li><li class="chapter-item expanded "><a href="../10-punch-o-meter/the-challenge.html"><strong aria-hidden="true">10.2.</strong> Desafio</a></li><li class="chapter-item expanded "><a href="../10-punch-o-meter/my-solution.html"><strong aria-hidden="true">10.3.</strong> Minha solução</a></li></ol></li><li class="chapter-item expanded "><a href="../explore.html"><strong aria-hidden="true">11.</strong> O que resta para você explorar</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><a href="../appendix/1-general-troubleshooting/index.html">Solucionando problemas gerais</a></li><li class="chapter-item expanded affix "><a href="../appendix/2-how-to-use-gdb/index.html">Como usar o GDB</a></li><li class="spacer"></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Discovery</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/rust-embedded/discovery/" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <!-- # LED roulette -->
+<h1 id="roleta-led"><a class="header" href="#roleta-led">Roleta LED</a></h1>
+<!-- Alright, let's start by building the following application: -->
+<p>Certo, vamos começar construindo a seguinte aplicação:</p>
+<p align="center">
+<video src="../assets/roulette_fast.mp4" loop autoplay>
+</p>
+<!-- I'm going to give you a high level API to implement this app but don't worry
+we'll do low level stuff later on. The main goal of this chapter is to get
+familiar with the _flashing_ and debugging process. -->
+<p>Vou fornecer a você uma API de alto nível para implementar este aplicativo, mas
+não se preocupe, faremos coisas de baixo nível posteriormente. O objetivo
+principal deste capítulo é familiarizar-se com o processo de <em>flashing</em> e
+depuração.</p>
+<!-- The starter code is in the `src` directory of the book repository. Inside that
+directory there are more directories named after each chapter of this book. Most
+of those directories are starter Cargo projects. -->
+<p>O código inicial está no diretório <code>src</code> do repositório do livro. Dentro desse
+diretório, existem mais diretórios com nomes de cada capítulo deste livro. A
+maioria desses diretórios são projetos iniciais de Cargo.</p>
+<!-- Now, jump into the `src/05-led-roulette` directory. Check the `src/main.rs`
+file: -->
+<p>Agora, vá para o diretório <code>src/05-led-roulette</code>. Verifique o arquivo
+<code>src/main.rs</code>:</p>
+<pre><pre class="playground"><code class="language-rust">#![deny(unsafe_code)]
+#![no_main]
+#![no_std]
+
+use cortex_m_rt::entry;
+use microbit as _;
+use panic_halt as _;
+
+#[entry]
+fn main() -&gt; ! {
+    let _y;
+    let x = 42;
+    _y = x;
+
+    // loop infinito; apenas para não sairmos deste stack frame
+    loop {}
+}</code></pre></pre>
+<!-- Microcontroller programs are different from standard programs in two aspects:
+`#![no_std]` and `#![no_main]`. -->
+<p>Programas para microcontroladores são diferentes de programas convencionais em
+dois aspectos: <code>#![no_std]</code> e <code>#![no_main]</code>.</p>
+<!-- The `no_std` attribute says that this program won't use the `std` crate, which
+assumes an underlying OS; the program will instead use the `core` crate, a
+subset of `std` that can run on bare metal systems (i.e., systems without OS
+abstractions like files and sockets). -->
+<p>O atributo <code>no_std</code> indica que este programa não usará o crate <code>std</code>, que
+pressupõe a existência de um sistema operacional subjacente. Em vez disso, o
+programa usará o crate <code>core</code>, que é um subconjunto do <code>std</code> que pode ser
+executado em sistemas bare metal (ou seja, sistemas sem abstrações de sistema
+operacional, como arquivos e sockets).</p>
+<!-- The `no_main` attribute says that this program won't use the standard `main`
+interface, which is tailored for command line applications that receive
+arguments. Instead of the standard `main` we'll use the `entry` attribute from
+the [`cortex-m-rt`] crate to define a custom entry point. In this program we
+have named the entry point "main", but any other name could have been used. The
+entry point function must have signature `fn() -> !`; this type indicates that
+the function can't return -- this means that the program never terminates. -->
+<p>O atributo <code>no_main</code> indica que este programa não usará a interface <code>main</code>
+padrão, que é adequada para aplicativos de linha de comando que recebem
+argumentos. Em vez do <code>main</code> padrão, utilizaremos o atributo <code>entry</code> do crate
+[cortex-m-rt] para definir um ponto de entrada customizado. Neste programa,
+nomeamos o ponto de entrada como "main", mas poderíamos ter usado qualquer outro
+nome. A função de ponto de entrada deve ter a assinatura <code>fn() -&gt; !</code>, indicando
+que a função não pode retornar -- isso significa que o programa nunca termina.</p>
+<!-- If you are a careful observer, you'll also notice there is a `.cargo` directory
+in the Cargo project as well. This directory contains a Cargo configuration file
+(`.cargo/config`) that tweaks the linking process to tailor the memory layout of
+the program to the requirements of the target device. This modified linking
+process is a requirement of the `cortex-m-rt` crate. -->
+<p>Se você for um observador cuidadoso, também notará que existe um diretório
+<code>.cargo</code> no projeto Cargo. Esse diretório contém um arquivo de configuração do
+Cargo (<code>.cargo/config</code>) que ajusta o processo de linking para adaptar o layout
+de memória do programa aos requisitos do dispositivo alvo. Esse processo de
+linking modificado é um requisito do crate <code>cortex-m-rt</code>.</p>
+<!-- Furthermore, there is also an `Embed.toml` file -->
+<p>Além disso, há também um arquivo <code>Embed.toml</code>.</p>
+<pre><code class="language-toml">[default.general]
+# chip = "nrf52833_xxAA" # para micro:bit V2, descomente essa linha
+# chip = "nrf51822_xxAA" # para micro:bit V1, descomente essa linha
+
+[default.reset]
+halt_afterwards = true
+
+[default.rtt]
+enabled = false
+
+[default.gdb]
+enabled = true
+</code></pre>
+<!-- This file tells `cargo-embed` that: -->
+<p>Este arquivo informa ao <code>cargo-embed</code> que:</p>
+<!-- - we are working with either a nrf52833 or nrf51822, you will again have to
+  remove the comments from the chip you are using, just like you did in
+  chapter 3. -->
+<ul>
+<li>Estamos trabalhando com um nrf52833 ou nrf51822. Você terá que remover
+novamente os comentários do chip que estiver usando, assim como fez no
+capítulo 3.</li>
+</ul>
+<!-- - we want to halt the chip after we flashed it so our program does not instantly
+  jump to the loop -->
+<ul>
+<li>Desejamos interromper o chip depois de gravá-lo para que nosso programa não
+salte instantaneamente para o loop.</li>
+</ul>
+<!-- - we want to disable RTT, RTT being a protocol that allows the chip to send text
+  to a debugger. You have in fact already seen RTT in action, it was the
+  protocol that sent "Hello World" in chapter 3. -->
+<ul>
+<li>Queremos desabilitar o RTT, que é um protocolo que permite ao chip enviar
+texto para um depurador. Na verdade, você já viu o RTT em ação: ele foi o
+protocolo que enviou "Hello World" no capítulo 3.</li>
+</ul>
+<!-- - we want to enable GDB, this will be required for the debugging procedure -->
+<ul>
+<li>Desejamos habilitar o GDB, pois isso será necessário para o procedimento de
+depuração.</li>
+</ul>
+<!-- Alright, let's start by building this program. -->
+<p>Certo, vamos começar construindo este programa.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../04-meet-your-hardware/terminology.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../05-led-roulette/build-it.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../04-meet-your-hardware/terminology.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../05-led-roulette/build-it.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>
