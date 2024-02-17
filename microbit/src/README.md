@@ -123,8 +123,8 @@ Já o repositório da tradução para português está [aqui]. Caso você encont
 algum erro de digitação ou qualquer outro problema relacionado a ela, informe-o
 na [seção de issues].
 
-[aqui]: https://github.com/allynaell/discovery
-[seção de issues]: https://github.com/allynaell/discovery/issues
+[aqui]: https://github.com/allyssan/discovery
+[seção de issues]: https://github.com/allyssan/discovery/issues
 
 <!-- ## Other embedded Rust resources -->
 

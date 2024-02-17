@@ -16,11 +16,11 @@ Rust, enquanto o segundo é mais novo e usa uma placa de circuito micro:bit.
 
 <!-- - [Read the newer book, using a micro:bit](https://docs.rust-embedded.org/discovery/microbit) -->
 
-- [Leia o livro mais recente, usando um micro:bit](https://allynaell.github.io/discovery/microbit)
+- [Leia o livro mais recente, usando um micro:bit](https://allyssan.github.io/discovery/microbit)
 
 <!-- - [Read the older book, using an F3 discovery board](https://docs.rust-embedded.org/discovery/f3discovery) -->
 
-- [Leia o livro antigo, usando uma placa F3 Discovery](https://allynaell.github.io/discovery/f3discovery)
+- [Leia o livro antigo, usando uma placa F3 Discovery](https://allyssan.github.io/discovery/f3discovery)
 
 <!-- - Start working on the examples from this repository -->
 
@@ -71,5 +71,5 @@ tradução seja listada aqui, abra um PR para adicioná-la.
   ([repositório](https://github.com/tomoyuki-nakabayashi/discovery))
 - [Chinês](https://jzow.github.io/discovery/)
   ([repositório](https://github.com/jzow/discovery))
-- [Português (Brasil)](https://allynaell.github.io/discovery/)
-  ([repositório](https://github.com/allynaell/discovery))
+- [Português (Brasil)](https://allyssan.github.io/discovery/)
+  ([repositório](https://github.com/allyssan/discovery))
