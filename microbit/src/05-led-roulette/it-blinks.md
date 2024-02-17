@@ -1,20 +1,31 @@
-# It blinks
+<!-- # It blinks -->
+# Está piscando
 
 ## Delaying
-Now we're going to take a brief look into delay abstractions provided by `embedded-hal`
-before combining this with the GPIO abstractions from the previous chapter in order to
-finally make an LED blink.
 
-`embedded-hal` provides us with two abstractions to delay the execution of our program:
+<!-- Now we're going to take a brief look into delay abstractions provided by `embedded-hal`
+before combining this with the GPIO abstractions from the previous chapter in order to
+finally make an LED blink. -->
+
+Agora vamos dar uma breve olhada nas abstrações de delay fornecidas pelo `embedded-hal`
+antes de combiná-las com as abstrações de GPIO do capítulo anterior para
+finalmente fazer um LED piscar.
+
+<!-- `embedded-hal` provides us with two abstractions to delay the execution of our program:
 [`DelayUs`] and [`DelayMs`]. Both of them essentially work the exact same way except
-that they accept different units for their delay function.
+that they accept different units for their delay function. -->
+
+O `embedded-hal` nos fornece duas abstrações para atrasar a execução do nosso programa:
+[`DelayUs`] e [`DelayMs`]. Ambas funcionam exatamente da mesma forma, exceto pelo fato de aceitarem unidades diferentes para sua função de delay.
 
 [`DelayUs`]: https://docs.rs/embedded-hal/0.2.6/embedded_hal/blocking/delay/trait.DelayUs.html
 [`DelayMs`]: https://docs.rs/embedded-hal/0.2.6/embedded_hal/blocking/delay/trait.DelayMs.html
 
-Inside our MCU, several so-called "timers" exist. They can do various things regarding time for us,
+<!-- Inside our MCU, several so-called "timers" exist. They can do various things regarding time for us,
 including simply pausing the execution of our program for a fixed amount of time. A very
-simple delay-based program that prints something every second might for example look like this:
+simple delay-based program that prints something every second might for example look like this: -->
+
+Dentro de nossa MCU, existem vários dos chamados "timers". Eles podem fazer várias coisas relacionadas ao tempo para nós, inclusive simplesmente pausar a execução do nosso programa por um período fixo de tempo. Um programa muito simples baseado em delay que imprime algo a cada segundo pode, por exemplo, ser semelhante a isso:
 
 ```rs
 #![deny(unsafe_code)]
@@ -42,12 +53,16 @@ fn main() -> ! {
 }
 ```
 
-Note that we changed our panic implementation from `panic_halt` to
+<!-- Note that we changed our panic implementation from `panic_halt` to
 `panic_rtt_target` here. This will require you to uncomment the two
 RTT lines from `Cargo.toml` and comment the `panic-halt` one out,
-since Rust only allows one panic implementation at a time.
+since Rust only allows one panic implementation at a time. -->
 
-In order to actually see the prints we have to change `Embed.toml` like this:
+Observe que alteramos nossa implementação de pânico de `panic_halt` para `panic_rtt_target` aqui. Isso exigirá que você descomente as duas linhas RTT do arquivo `Cargo.toml` e comentar a linha `panic-halt`, já que o Rust permite apenas uma implementação de pânico por vez.
+
+<!-- In order to actually see the prints we have to change `Embed.toml` like this: -->
+Para realmente ver o que foi imprimido, temos que alterar o `Embed.toml` da seguinte forma:
+
 ```
 [default.general]
 # chip = "nrf52833_xxAA" # uncomment this line for micro:bit V2
@@ -63,14 +78,21 @@ enabled = true
 enabled = false
 ```
 
-And now after putting the code into `src/main.rs` and another quick `cargo embed` (again with the same flags you used before)
-you should see "`1000 ms passed`" being sent to your console every second from your MCU.
+<!-- And now after putting the code into `src/main.rs` and another quick `cargo embed` (again with the same flags you used before)
+you should see "`1000 ms passed`" being sent to your console every second from your MCU. -->
 
-## Blinking
+E agora, após colocar o código em `src/main.rs` e executar outro rápido `cargo embed` (novamente com os mesmos sinalizadores que você usou antes) você deverá ver "`1000 ms passed`" sendo enviado ao seu console a cada segundo a partir da MCU.
 
-Now we've arrived at the point where we can combine our new knowledge about GPIO and delay abstractions
+<!-- ## Blinking -->
+
+## Piscando
+
+<!-- Now we've arrived at the point where we can combine our new knowledge about GPIO and delay abstractions
 in order to actually make an LED on the back of the micro:bit blink. The resulting program is really just
-a mash-up of the one above and the one that turned an LED on in the last section and looks like this:
+a mash-up of the one above and the one that turned an LED on in the last section and looks like this: -->
+
+Agora chegamos ao ponto em que podemos combinar nosso novo conhecimento sobre GPIO e abstrações de delay
+para realmente fazer um LED na parte traseira do micro:bit piscar. O programa resultante é, na verdade, apenas uma mistura do programa acima com o programa que acendeu o LED na última seção e se parece com isso:
 
 ```rs
 #![deny(unsafe_code)]
@@ -105,5 +127,7 @@ fn main() -> ! {
 }
 ```
 
-And after putting the code into `src/main.rs` and a final `cargo embed` (with the proper flags)
-you should see the LED we light up before blinking as well as a print, every time the LED changes from off to on and vice versa.
+<!-- And after putting the code into `src/main.rs` and a final `cargo embed` (with the proper flags)
+you should see the LED we light up before blinking as well as a print, every time the LED changes from off to on and vice versa. -->
+
+Depois de colocar o código em `src/main.rs` e executar um `cargo embed` final (com os sinalizadores adequados), você deverá ver o LED acender antes de piscar, bem como um print, toda vez que o LED mudar de desligado para ligado e vice-versa.
